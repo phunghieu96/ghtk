@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="index.html ::  head('Search')"></head>
+<body>
+<div th:replace="index.html :: header"></div>
+<div>
+    <form th:action="@{/search}" method="post">
+        <div class="row">
+            <div class="col-left">
+                <label for="name">Họ và tên:</label>
+            </div>
+            <div class="col-right">
+                <input type="text" id="name" name="name"></br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-left">
+                <label for="id">Mã học sinh:</label>
+            </div>
+            <div class="col-right">
+                <input type="text" id="id" name="id"></br>
+            </div>
+        </div>
+        <input type="submit" id="submitBtn">
+    </form>
+</div>
+<div>
+    <table>
+        <thead>
+        <td>STT</td>
+        <td>Trường tiểu học</td>
+        <td>Quận/huyện</td>
+        <td>Mã học sinh</td>
+        <td>Lớp</td>
+        <td>Tên</td>
+        <td>Ngày sinh</td>
+        <td>Giới tính</td>
+        <td>Nơi sinh</td>
+        <td>Dân tộc</td>
+        <td>Hộ khẩu</td>
+        <td>SDT</td>
+        <td>Tổng điểm năm lớp 1</td>
+        <td>Tổng điểm năm lớp 2</td>
+        <td>Tổng điểm năm lớp 3</td>
+        <td>Tổng điểm năm lớp 4</td>
+        <td>Tổng điểm năm lớp 5</td>
+        <td>Tổng điểm kết quả 5 năm</td>
+        <td>Điểm ưu tiên</td>
+        <td>Tổng điểm sơ tuyển</td>
+        <td>Ghi chú</td>
+        </thead>
+        <tbody th:each="student, istart : ${students}">
+        <td th:text="${istart.index + 1}"></td>
+        <td th:text="${student.truongHoc}"></td>
+        <td th:text="${student.huyen}"></td>
+        <td th:text="${student.maHS}"></td>
+        <td th:text="${student.lop}"></td>
+        <td th:text="${student.hoTen}"></td>
+        <td th:text="${#dates.format(student.birthday, 'dd-MMM-yyyy')}"></td>
+        <td th:text="${student.gioiTinh}"></td>
+        <td th:text="${student.noiSinh}"></td>
+        <td th:text="${student.danToc}"></td>
+        <td th:text="${student.hoKhauTT}"></td>
+        <td th:text="${student.sDT}"></td>
+        <td th:text="${student.diemNam1}"></td>
+        <td th:text="${student.diemNam2}"></td>
+        <td th:text="${student.diemNam3}"></td>
+        <td th:text="${student.diemNam4}"></td>
+        <td th:text="${student.diemNam5}"></td>
+        <td th:text="${student.tongDiem5Nam}"></td>
+        <td th:text="${student.diemUuTien}"></td>
+        <td th:text="${student.tongDiemSoTuyen}"></td>
+        <td th:text="${student.ghiChu}"></td>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

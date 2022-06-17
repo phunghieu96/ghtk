@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}"></title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:fragment="header" class="container">
+        <h2>Tra cứu thông tin tuyển sinh</h2>
+    <div class="logo">
+        <img th:src="@{/img/logo.svg}">
+    </div>
+    <div class="import">
+        <form th:action="@{/add}" method="post" enctype="multipart/form-data">
+            <input type="file" name="excelFile"/>
+            <button type="submit"> Upload</button>
+        </form>
+
+    </div>
+    <div class="footer">
+        <p> TRUONG THPT TUNG THIEN </p>
+    </div>
+</div>
+
+
+</body>
+</html>
